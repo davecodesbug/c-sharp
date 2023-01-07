@@ -6,9 +6,9 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            const string name = "Dave";
-            string greet = "Hey, My name is " + name;
-            Console.WriteLine(greet);
+            string num = "101";
+            int convNum = Convert.ToInt16(num);
+            Console.WriteLine(convNum);
             Console.Beep();
         }
     }
