@@ -1,15 +1,12 @@
 ﻿using System;
 
-namespace HelloWorld
+namespace Programcode
 {
-    class Program
+    class Programcode
     {
         static void Main(string[] args)
-        {
-            string num = "101";
-            int convNum = Convert.ToInt16(num);
-            Console.WriteLine(convNum);
-            Console.Beep();
-        }
+            {
+               
+            }
     }
 }

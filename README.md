@@ -11,7 +11,7 @@ Console.WriteLine or Console.Write for printing without break-inline
 Below are the data types we have in C# => 👇
 
 * bool
-* byt
+* byte
 * sbyte
 * char
 * decimal
@@ -43,3 +43,96 @@ We can do something like: 👇
 string num = "101";
 int convNum = Convert.ToInt16(num);
 ```
+
+## Arithmetic Operators
+
+Arithmetic operators are used to compute mathematics calculations.
+
+Arithmetic operators in C#: 👇
+
+* Minus
+* Plus
+* Multiplications
+* Divisions
+* Remainders
+
+## If/else Statements
+
+A basic form of decision making based on a specified value. A basic `If/else` statement is written as follows: 👇
+
+```c#
+int age = 18;
+
+if (age >= 18)
+    {
+    Console.WriteLine("You're an adult!");
+    }
+    else
+    {
+    Console.WriteLine("You're a kid!");
+    }
+```
+
+## Switch Statements
+
+Switch statement is an efficient and shorter to write alternative to nested `if/else` statements.
+
+Let's write a simple switch statement to check the months in a year: 👇
+
+```c#
+Console.WriteLine("What month is it?");
+string months = Console.ReadLine()!;
+
+    switch (months)
+        {
+            case "January":
+            Console.WriteLine("We're in " + months);
+            break;
+            case "February":
+            Console.WriteLine("We're in " + months);
+            break;
+            case "March":
+            Console.WriteLine("We're in " + months);
+            break;
+            case "April":
+            Console.WriteLine("We're in " + months);
+            break;
+            case "May":
+            Console.WriteLine("We're in " + months);
+            break;
+            case "June":
+            Console.WriteLine("We're in " + months);
+            break;
+            case "July":
+            Console.WriteLine("We're in " + months);
+            break;
+            case "August":
+            Console.WriteLine("We're in " + months);
+            break;
+            case "September":
+            Console.WriteLine("We're in " + months);
+            break;
+            case "October":
+            Console.WriteLine("We're in " + months);
+            break;
+            case "November":
+            Console.WriteLine("We're in " + months);
+            break;
+            case "December":
+            Console.WriteLine("We're in " + months);
+            break;
+            default:
+            Console.WriteLine(months + " Is not a month");
+            break;
+
+        }
+```
+
+## Logical Operators
+
+Logical operators can be used to check whether one or more elements is `truthy` or `falsy`.
+
+Logical operators in C#: 👇
+
+* AND
+* OR
