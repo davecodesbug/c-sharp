@@ -8,24 +8,24 @@ Console.WriteLine or Console.Write for printing without break-inline
 
 Below are the data types we have in C# => 👇
 
-bool
-byt
-sbyte
-char
-decimal
-double	
-float	
-int
-uint	
-nint	
-nuint
-long
-ulong	
-short
-ushort
-object
-string
-dynamic
+* bool
+* byt
+* sbyte
+* char
+* decimal
+* double	
+* float	
+* int
+* uint	
+* nint	
+* nuint
+* long
+* ulong	
+* short
+* ushort
+* object
+* string
+* dynamic
 
 ## Constants
 
