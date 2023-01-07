@@ -136,3 +136,31 @@ Logical operators in C#: 👇
 
 * AND
 * OR
+
+## While Loops
+
+A while loop is a block of code that will run based on if a passed in value is of `truthy` or `falsy` type. Example: 👇
+
+```c#
+while (true)
+    {
+        Console.WriteLine("Running while loops");
+    }
+```
+
+The above code will continue to run infinitely until you stop it manually because of the passed in `truthy` type.
+
+## For Loops
+
+A for loop is just like a while loop, just that it's going to run for a finite amount of time.
+
+Code sample: 👇
+
+```c#
+for (int i = 0; i < 10; i++)
+    {
+        Console.WriteLine(i);
+    }
+```
+
+The above code will write to the console 10 times, starting from 0-9.
