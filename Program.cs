@@ -1,15 +1,10 @@
-﻿using System;
-
-namespace Programcode
+﻿namespace Programcode
 {
-    class Programcode
+    class code
     {
         static void Main(string[] args)
             {
-               for (int i = 0; i < 10; i++)
-               {
-                Console.WriteLine(i);
-               }
+             Console.WriteLine("hey");
             }
     }
 }
