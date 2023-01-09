@@ -2,7 +2,7 @@
 
 Documenting important stuffs about C# so I can have something to fallback on whenever I need help... ✍
 
-# Table of Contents
+# Table of Contents 📝
 1. [Creating Projects](#creating-projects)
 2. [Printing to the console](#printing-to-the-console)
 3. [Variables](#variables)
