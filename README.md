@@ -31,6 +31,7 @@ Documenting important stuffs about C# so I can have something to fallback on whe
 26. [Class Inheritance](#class-inheritance)
 27. [Abstract Class](#abstract-class)
 28. [Array of Object](#array-of-object)
+29. [Objects as Arguments](#objects-as-arguments)
 
 ## Creating Projects
 
@@ -647,3 +648,37 @@ class Animal
 }
 ```
 
+## Objects as Arguments
+
+Passing a class object as an argument to a method. Visual: 👇
+
+```c#
+ static void Main(string[] args)
+{
+    Car car = new Car("Toyota", "red");
+    // Calling the method and passing in the instantiated car object alongside the color string
+    Color(car, "yellow");
+    // This will print the car make `Toyota` and the car color `yellow`
+    Console.WriteLine($"Car make is: {car.make} & Car color is {car.color}");
+}
+
+// A method receiving the `Car` object as argument and another argument of color passed in
+public static void Color(Car car, string color)
+{
+    // Setting the object `color` field as the string of color
+    car.color = color;
+}
+    
+// A class of Car with public make and color
+class Car
+{
+    public string make;
+    public string color;
+
+    public Car(string make, string color)
+    {
+        this.make = make;
+        this.color = color;
+    }
+}
+```
