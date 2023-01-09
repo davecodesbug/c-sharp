@@ -18,7 +18,9 @@ Documenting important stuffs about C# so I can have something to fallback on whe
 13. [Arrays](#arrays)
 14. [Foreach Loops](#foreach-loops)
 15. [Methods](#methods)
-15. [Method Overloading](#method-overloading)
+16. [Method Overloading](#method-overloading)
+17. [The Params Keyword](#the-params-keyword)
+18. [Exception Handling](#exception-handling)
 
 ## Creating Projects
 
@@ -328,3 +330,50 @@ static int print(int x, int y, int z)
 ```
 
 As you can see here, we have two method performing basic maths with the same name. On a norm, this would have caused an error in our program, but not causing error because of the different parameters passed in.
+
+## The Params Keyword
+
+The params keyword can allow a method parameter take an array of value. It can be used to keep the code DRY instead of using `method overloading`. Here is the params keyword in action: 👇
+
+```c#
+ static void Main(string[] args)
+    {
+        double sum = SumPrice(100, 50, 60, 24, 99, 2);
+        Console.WriteLine(sum);
+
+    }
+static int SumPrice(params int[] prices)
+    {
+        int total = 0;
+        foreach (int price in prices)
+        {
+            total += price;
+        }
+        return total;
+    }
+```
+
+## Exception Handling
+
+Handling errors that might happen during code execution. A simple exception handling is written as follows: 👇
+
+```c#
+try 
+    {
+        Console.WriteLine("Enter number 1: ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Enter number 2: ");
+        int num2 = Convert.ToInt32(Console.ReadLine());
+
+        int total = num1 + num2;
+        Console.WriteLine(total);
+    }
+catch (FormatException err)
+    {
+        Console.WriteLine("You can only enter integers!", err);
+    }
+```
+
+When running the above code, if you enter a string instead of an integer, the console will print the error message written instead of just stopping the program abruptly.
+
