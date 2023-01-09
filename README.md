@@ -21,6 +21,16 @@ Documenting important stuffs about C# so I can have something to fallback on whe
 16. [Method Overloading](#method-overloading)
 17. [The Params Keyword](#the-params-keyword)
 18. [Exception Handling](#exception-handling)
+19. [Conditional Operator](#conditional-operator)
+20. [String Interpolation](#string-interpolation)
+21. [Class](#class)
+22. [Objects](#objects)
+23. [Constructors](#constructors)
+24. [Static Keyword](#static-keyword)
+25. [Constructor Overloading](#constructor-overloading)
+26. [Class Inheritance](#class-inheritance)
+27. [Abstract Class](#abstract-class)
+28. [Array of Object](#array-of-object)
 
 ## Creating Projects
 
@@ -376,4 +386,264 @@ catch (FormatException err)
 ```
 
 When running the above code, if you enter a string instead of an integer, the console will print the error message written instead of just stopping the program abruptly.
+
+## Conditional Operator
+
+Used to conditionally assign a value to a variable. It's a shorter way of writting an `if/else` statement. Written as follows: 👇
+
+```c#
+int age = 15;
+string notice;
+
+notice = (age >= 18) ? "You're an adult!" : "You're a KID!";
+Console.WriteLine(notice);
+```
+
+If the `age` variable value is greater than or equals 18, it will print `You're an adult!` else `You're a KID`.
+
+## String Interpolation
+
+String interpolation is a cleaner way of conjoining one or more variables together. A simple string interpolation is as follows: 👇
+
+```c#
+string name = "Dave";
+Console.WriteLine($"Hello, {name}");
+```
+
+## Class
+
+A class is a bundle of code that are related to each other, usually used to as a blueprint to create an object in OOP.
+
+Creating and using a basic C# class is as follows: 👇
+
+```c#
+class Cycle
+    {
+        public static void greet()
+        {
+            Console.WriteLine("Starting code...");
+        }
+
+        public static void running()
+        {
+            Console.WriteLine("The code is now running...");
+        }
+
+        public static void end()
+        {
+            Console.WriteLine("Stopping code session...");
+        }
+    }
+```
+
+Then it can be used in our `Main` code function like so: 👇
+
+```c#
+Cycle.greet();
+Cycle.running();
+Cycle.end();
+```
+
+## Objects
+
+Objects is an instance of a class that can have methods & fields (characteristics & actions). To demonstrate, here is an `Human` class: 👇
+
+```c#
+class Human
+    {
+        public string? name;
+        public int age;
+        public void walk()
+        {
+            Console.WriteLine($"{name} is walking 🚶‍♂️");
+        }
+
+        public void sit()
+        {
+            Console.WriteLine($"{name} is sitting 🪑");
+        }
+
+        public void birthDate()
+        {
+            Console.WriteLine($"{name} is {age}yrs old 🎂");
+        }
+    }
+```
+
+Then, we can place the instance of this `Human` class in a variable for use: 👇
+
+```c#
+Human human1 = new Human();
+human1.name = "Dave";
+human1.age = 23;
+human1.walk();
+human1.sit();
+human1.birthDate();
+```
+
+## Constructors
+
+A special method used to pass in arguments to fields when creating an object. Sample: 👇
+
+In our class of `Human`:
+
+```c#
+ class Human
+    {
+        // You can remove the `public` keyword as we are not going to access these vars outside of there class
+        string? name;
+        int age;
+
+        // Here is a constructor
+        // Must be the same name as our class name
+        public Human(string name, int age)
+        {
+            // To access the outer variables, use the `this` keyword
+            this.name = name;
+            this.age = age;
+        }
+        // Constructor ends here!
+        public void walk()
+        {
+            Console.WriteLine($"{name} is walking 🚶‍♂️");
+        }
+
+        public void sit()
+        {
+            Console.WriteLine($"{name} is sitting 🪑");
+        }
+
+        public void birthDate()
+        {
+            Console.WriteLine($"{name} is {age}yrs old 🎂");
+        }
+    }
+```
+
+Then pass in the values when assigning the `Human` instance to a variable like so: 👇
+
+```c#
+Human human1 = new Human("Dave", 23);
+```
+
+## Static Keyword
+
+The `static` keyword is used to declare a static member belonging to a class as a whole, and not to one specific object of a class. For instance, let's create a class of `Person`: 👇
+
+```c#
+class Person
+    {
+        string name;
+
+        public Person(string name)
+        {
+            this.name = name;
+        }
+    }
+```
+Now, if there is a scenario where we want to keep track of how many object is created with this class, we can do: 👇
+
+```c#
+class Person
+    {
+        string name;
+        public static int numOfObject;
+
+        public Person(string name)
+        {
+            this.name = name;
+            numOfObject++;
+        }
+    }
+```
+
+Refer to it in our code like: 👇
+
+```c#
+Person person1 = new Person("Dave");
+Person person2 = new Person("Wexford");
+Person person3 = new Person("Adewale");
+// If it's static, it belongs to the class itself and not a specific object
+Console.WriteLine(Person.numOfObject);
+```
+This is going to print `3` to the console, as we have created 3 object from the class. Had it been we haven't prefixed the `numOfObject` variable with the `static` keyword, this will only print `1` three times to the console.
+
+## Constructor Overloading
+
+Just like `method overloading`, constructor overloading is when we have multiple constructor with the same name but different parameters. Check `method overloading` to see code samples.
+
+## Class Inheritance
+
+Class inheritance is when a child class inherits fields & methods from a parent class. Sample code: 👇
+
+```c#
+class Animal
+    {
+        public string? type;
+    }
+
+class Pet : Animal
+    {
+        public void printType()
+        {
+            Console.WriteLine($"Pet type is: {type}");
+        }
+    }
+```
+
+We created a class of `Animal` with a public `type` variable. This got inherited by the class of `Pet` below it, this new class has now gained access to the variable of `type` even though it's not declared in it.
+
+We can use it in our `Main` method like so: 👇
+
+```c#
+Pet pet = new Pet();
+
+pet.type = "Cat";
+pet.printType();
+```
+
+We assigned a type to the variable and called our method of `printType` so we can see it get printed to the console.
+
+## Abstract Class
+
+Abstract class is an incomplete implementation or a class with missing components. The `abstract` keyword will make sure people don't instantiate an object of this abstract class as it's incomplete. Sample 👉: `abstract class Animal(){}`.
+
+## Array of Object
+
+An array of object is just like a normal array, but containing a class object value. Example: 👇
+
+```c#
+// Main method
+static void Main(string[] args)
+{
+    // Initialize an array of object
+    Animal[] den = new Animal[3];
+
+    // Object instance
+    Animal animal1 = new Animal("Dog");
+    Animal animal2 = new Animal("Cat");
+    Animal animal3 = new Animal("Iguana");
+
+    // Assign the array an object value
+    den[0] = animal1;
+    den[1] = animal2;
+    den[2] = animal3;
+
+    // Loop and print each object value to the console
+    foreach (Animal animal in den)
+    {
+        Console.WriteLine(animal.type);
+    }
+}
+// A class of Animal
+class Animal
+{
+    public string? type;
+
+    public Animal(string type)
+    {
+        this.type = type;
+    }
+}
+```
 
