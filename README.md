@@ -2,6 +2,24 @@
 
 Documenting important stuffs about C# so I can have something to fallback on whenever I need help... ✍
 
+# Table of Contents
+1. [Creating Projects](#creating-projects)
+2. [Printing to the console](#printing-to-the-console)
+3. [Variables](#variables)
+4. [Constants](#constants)
+5. [Type Casting](#type-casting)
+6. [Arithmetic Operators](#arithmetic-operators)
+7. [If/else Statements](#ifelse-statements)
+8. [Switch Statements](#switch-statements)
+9. [Logical Operators](#logical-operators)
+10. [While Loops](#while-loops)
+11. [For Loops](#for-loops)
+12. [Nested Loops](#nested-loops)
+13. [Arrays](#arrays)
+14. [Foreach Loops](#foreach-loops)
+15. [Methods](#methods)
+15. [Method Overloading](#method-overloading)
+
 ## Creating Projects
 
 To create a new C# project via the CLI: 👉 `dotnet new console -o projectName`
