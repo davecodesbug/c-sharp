@@ -2,6 +2,10 @@
 
 Documenting important stuffs about C# so I can have something to fallback on whenever I need help... ✍
 
+## Creating Projects
+
+To create a new C# project via the CLI: 👉 `dotnet new console -o projectName`
+
 ## Printing to the console
 
 Console.WriteLine or Console.Write for printing without break-inline
