@@ -34,6 +34,7 @@ Documenting important stuffs about C# so I can have something to fallback on whe
 29. [Array of Object](#array-of-object)
 30. [Objects as Arguments](#objects-as-arguments)
 31. [Class Method Overriding](#class-method-overriding)
+31. [ToString Method](#tostring-method)
 
 ## Creating Projects
 
@@ -734,3 +735,33 @@ bike.wheels();
 
 ## ToString Method
 
+Converts an object to it's string representation so it can be displayed correctly in the console. For instance: 👇
+
+```c#
+class Person
+    {
+        string? name;
+        int age;
+
+        public Person(string name, int age)
+        {
+            this.name = name;
+            this.age = age;
+        }
+
+        // Calling & overriding the `ToString` method to automatically return a string even when not invoked
+        public override string ToString()
+        {
+            return $"{name} is {age} years old!";
+        }
+    }
+```
+
+To get the returned string printed to the console, we can do: 👇
+
+```c#
+Person person = new Person("Dave", 23);
+
+//We don't need to invoke the `ToString` method as it's getting called in the background for us
+Console.WriteLine(person);
+```

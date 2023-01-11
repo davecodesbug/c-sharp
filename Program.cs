@@ -4,35 +4,25 @@
     {
         static void Main(string[] args)
             {
-               Unicycle unicycle = new Unicycle();
-               unicycle.wheels();
-
-               Bike bike = new Bike();
-               bike.wheels();
+              Person person = new Person("Dave", 23);
+              Console.WriteLine(person);
             }
     }
 
-    abstract class Vehicle
+    class Person
     {
-        public virtual void wheels()
-        {
-            Console.WriteLine("Vehicle has 4 wheels");
-        }
-    }
+        string? name;
+        int age;
 
-    class Unicycle : Vehicle
-    {
-        public override void wheels()
+        public Person(string name, int age)
         {
-            Console.WriteLine("Unicycle has 1 giant wheel");
+            this.name = name;
+            this.age = age;
         }
-    }
 
-    class Bike : Vehicle
-    {
-        public override void wheels()
+        public override string ToString()
         {
-            Console.WriteLine("Bike has 2 wheels");
+            return $"{name} is {age} years old!";
         }
     }
 }
