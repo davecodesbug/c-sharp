@@ -4,26 +4,35 @@
     {
         static void Main(string[] args)
             {
-                Car car = new Car("Toyota", "red");
-                Color(car, "yellow");
-                Console.WriteLine($"Car make is: {car.make} & Car color is {car.color}");
-            }
+               Unicycle unicycle = new Unicycle();
+               unicycle.wheels();
 
-        public static void Color(Car car, string color)
+               Bike bike = new Bike();
+               bike.wheels();
+            }
+    }
+
+    abstract class Vehicle
+    {
+        public virtual void wheels()
         {
-            car.color = color;
+            Console.WriteLine("Vehicle has 4 wheels");
         }
     }
 
-    class Car
+    class Unicycle : Vehicle
     {
-        public string make;
-        public string color;
-
-        public Car(string make, string color)
+        public override void wheels()
         {
-            this.make = make;
-            this.color = color;
+            Console.WriteLine("Unicycle has 1 giant wheel");
+        }
+    }
+
+    class Bike : Vehicle
+    {
+        public override void wheels()
+        {
+            Console.WriteLine("Bike has 2 wheels");
         }
     }
 }

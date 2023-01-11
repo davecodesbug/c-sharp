@@ -23,15 +23,17 @@ Documenting important stuffs about C# so I can have something to fallback on whe
 18. [Exception Handling](#exception-handling)
 19. [Conditional Operator](#conditional-operator)
 20. [String Interpolation](#string-interpolation)
-21. [Class](#class)
-22. [Objects](#objects)
-23. [Constructors](#constructors)
-24. [Static Keyword](#static-keyword)
-25. [Constructor Overloading](#constructor-overloading)
-26. [Class Inheritance](#class-inheritance)
-27. [Abstract Class](#abstract-class)
-28. [Array of Object](#array-of-object)
-29. [Objects as Arguments](#objects-as-arguments)
+21. [OOP TOPICS](#oop-topics)
+22. [Class](#class)
+23. [Objects](#objects)
+24. [Constructors](#constructors)
+25. [Static Keyword](#static-keyword)
+26. [Constructor Overloading](#constructor-overloading)
+27. [Class Inheritance](#class-inheritance)
+28. [Abstract Class](#abstract-class)
+29. [Array of Object](#array-of-object)
+30. [Objects as Arguments](#objects-as-arguments)
+31. [Class Method Overriding](#class-method-overriding)
 
 ## Creating Projects
 
@@ -411,6 +413,10 @@ string name = "Dave";
 Console.WriteLine($"Hello, {name}");
 ```
 
+# OOP TOPICS
+
+Here is where OOP (Object Oriented Programming) topics documentation startes.
+
 ## Class
 
 A class is a bundle of code that are related to each other, usually used to as a blueprint to create an object in OOP.
@@ -682,3 +688,49 @@ class Car
     }
 }
 ```
+
+## Class Method Overriding
+
+Class method overriding is when an `abstract` class method which have been inherited by another class gets customized to fit the specific class calling it. Here's how it's done: 👇
+
+```c#
+// Base or Abstract class
+abstract class Vehicle
+{
+    // Add the `virtual` keyword so the method can be overriden
+    public virtual void wheels()
+    {
+        Console.WriteLine("Vehicle has 4 wheels");
+    }
+}
+
+class Unicycle : Vehicle
+{
+    // Add the `override` keyword to customize the base class method
+    public override void wheels()
+    {
+        Console.WriteLine("Unicycle has 1 giant wheel");
+    }
+}
+
+class Bike : Vehicle
+{
+    public override void wheels()
+    {
+        Console.WriteLine("Bike has 2 wheels");
+    }
+}
+```
+
+Now, we can call the two class like so: 👇
+
+```c#
+Unicycle unicycle = new Unicycle();
+unicycle.wheels();
+
+Bike bike = new Bike();
+bike.wheels();
+```
+
+## ToString Method
+
