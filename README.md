@@ -36,6 +36,7 @@ Documenting important stuffs about C# so I can have something to fallback on whe
 31. [Class Method Overriding](#class-method-overriding)
 32. [ToString Method](#tostring-method)
 33. [Polymorphism](#polymorphism)
+34. [Interfaces](#interfaces)
 
 ## Creating Projects
 
@@ -844,5 +845,51 @@ foreach (Animal animal in animals)
 {
 animal.Eat();
 animal.Sleep();
+}
+```
+
+## Interfaces
+
+Interfaces is a like a blueprint for classes to follow. It will contain methods or fields that have to be implemented by the inheriting class. Example: 👇
+
+```c#
+// Main method
+
+// Making an object out of our class and calling the inherited method
+Hawk hawk = new Hawk();
+hawk.Hunt();
+
+Rat rat = new Rat();
+rat.Flee();
+
+// Interface of animal of prey
+interface IPrey
+{
+    void Flee();
+}
+
+// Interface of a predator animal
+interface IPredator
+{
+    void Hunt();
+}
+
+// A class of Hawk inheriting the `IPredator` interface and it's defined method
+class Hawk : IPredator
+{
+    // The inherited method defining what the Hawk is doing
+    public void Hunt()
+    {
+        Console.WriteLine("The Hawk is hunting.");
+    }
+}
+
+// A class of Rat inheriting the `IPrey` interface and it's defined method
+class Rat : IPrey
+{
+    public void Flee()
+    {
+        Console.WriteLine("The Rat is fleeing.");
+    }
 }
 ```
