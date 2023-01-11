@@ -37,6 +37,12 @@ Documenting important stuffs about C# so I can have something to fallback on whe
 32. [ToString Method](#tostring-method)
 33. [Polymorphism](#polymorphism)
 34. [Interfaces](#interfaces)
+35. [Lists](#lists)
+36. [Lists of Objects](#lists-of-objects)
+37. [Getters & Setters](#getters--setters)
+38. [Auto Implemented Properties](#auto-implemented-properties)
+39. [Generics](#generics)
+40. [Multi Threading](#multi-threading)
 
 ## Creating Projects
 
@@ -893,3 +899,154 @@ class Rat : IPrey
     }
 }
 ```
+
+## Lists
+
+Lists in C# is the same as an array, the main difference is that a list can dynamically increase or decrease in size. It's size isn't restricted like that of an array. Example: 👇
+
+```c#
+// Declaring a list
+List<string> carBrand = new List<string>();
+
+// Adding values into the list
+carBrand.Add("Toyota");
+carBrand.Add("Audi");
+carBrand.Add("Ford");
+
+// Iterating over each item in the list and printing them to the console
+foreach (string car in carBrand)
+{
+    Console.WriteLine(car);
+}
+```
+
+## Lists of Objects
+
+A list of object is just like a normal list, but containing a class object value. Example: 👇
+
+```c#
+// Declaring a list of `pets` and passing in the `Pet` class as type
+List<Pet> pets = new List<Pet>();
+
+// Creating an object of the `Pet` class
+Pet pet1 = new Pet("Parrot");
+Pet pet2 = new Pet("Dog");
+Pet pet3 = new Pet("Iguana");
+
+// Adding the object inside the list
+pets.Add(pet1);
+pets.Add(pet2);
+pets.Add(pet3);
+
+// Iterating over each object passed into the list
+foreach (Pet pet in pets)
+{
+    // Printing the pet type to the console
+    Console.WriteLine(pet.type);
+}
+
+// Creating a class of `Pet`
+class Pet
+{
+    public string type;
+
+    public Pet(string type)
+    {
+        this.type = type;
+    }
+}
+```
+
+## Getters & Setters
+
+Getters & Setters is used gain access to a private fields in a class while also adding security to them by `encapsulation`. Instance: 👇
+
+```c#
+class Person
+{
+    // `private` string which can't be accessed out of this class
+    private string? name;
+
+    // Gettter & Setter
+    public string Name
+    {
+        // `get` returning the private variable
+        get { return name!; }
+        // `set` setting whatever value it's getting to the varible
+        set
+        {
+            name = value;
+        }
+    }
+
+    // Constructor
+    public Person(string name)
+    {
+        Name = name;
+    }
+}
+```
+
+To access this in our `Main` method and gain access to the object value, We can do: 👇
+
+```c#
+Person person = new Person("Dave");
+Console.WriteLine(person.Name);
+```
+
+## Auto Implemented Properties
+
+Auto implemented properties is a shorter way of writing a `Getter & Setter` when no additional logic is required. Example: 👇
+
+```c#
+class Person
+    {
+        private string? name;
+
+        // Auto implemented property with only `get` & `set`
+        public string Name { get; set;}
+
+        public Person(string name)
+        {
+            Name = name;
+        }
+    }
+```
+
+This can now be used in the `Main` method like so: 👇
+
+```c#
+Person person = new Person("Dave");
+Console.WriteLine(person.Name);
+```
+
+As you can see, it's the same as writing a `get` & `set` method, but just in a shorter way when we don't have any additional logic.
+
+## Generics
+
+Generics are not specific to any data types in particular, the generics symbol `<T>` can be added to a class, field, or method to make it accept any data types. Example: 👇
+
+```c#
+// Main method
+int[] nums = {1, 2, 3, 4, 5};
+double[] doubles = {6, 7, 8, 9, 10};
+string[] strNums = {"11", "12", "13", "14", "15"}; 
+
+// Passing in various array with different data types without error occuring. This is because of the `generic` usage
+iterate(nums);
+iterate(doubles);
+iterate(strNums);
+
+// A generic method with an array parameter that can accept any data types
+static void iterate<T>(T[] nums)
+        {
+            // Looping over each passed in array
+            foreach (T num in nums)
+            {
+                Console.WriteLine(num);
+            }
+        }
+```
+
+## Multi Threading
+

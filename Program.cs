@@ -1,4 +1,6 @@
-﻿namespace Program
+﻿using System.Threading;
+
+namespace Program
 {
     class code
     {
