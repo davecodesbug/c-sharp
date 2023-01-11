@@ -34,7 +34,8 @@ Documenting important stuffs about C# so I can have something to fallback on whe
 29. [Array of Object](#array-of-object)
 30. [Objects as Arguments](#objects-as-arguments)
 31. [Class Method Overriding](#class-method-overriding)
-31. [ToString Method](#tostring-method)
+32. [ToString Method](#tostring-method)
+33. [Polymorphism](#polymorphism)
 
 ## Creating Projects
 
@@ -764,4 +765,84 @@ Person person = new Person("Dave", 23);
 
 //We don't need to invoke the `ToString` method as it's getting called in the background for us
 Console.WriteLine(person);
+```
+
+## Polymorphism
+
+Polymorphism is a `greek` word that found its way into programming. It basically means to have many forms, polymorphism allows for objects to be identified by more than one type. Example: 👇
+
+```c#
+// A base class of `Animal` for other classes to inherit
+class Animal
+{
+    // Creating two `virtual` methods for other classes to override
+    public virtual void Eat()
+    {
+        Console.WriteLine("Animal is eating");
+    }
+
+    public virtual void Sleep()
+    {
+        Console.WriteLine("Animal is sleeping");
+    }
+}
+
+class Dog : Animal
+{
+    // Overriding the base class methods
+    public override void Eat()
+    {
+        Console.WriteLine("Dog is eating");
+    }
+
+    public override void Sleep()
+    {
+        Console.WriteLine("Dog is sleeping");
+    }
+}
+
+class Cat : Animal
+{
+    public override void Eat()
+    {
+        Console.WriteLine("Cat is eating");
+    }
+
+    public override void Sleep()
+    {
+        Console.WriteLine("Cat is sleeping");
+    }
+}
+
+class Duck : Animal
+{
+    public override void Eat()
+    {
+        Console.WriteLine("Duck is eating");
+    }
+
+    public override void Sleep()
+    {
+        Console.WriteLine("Duck is sleeping");
+    }
+}
+```
+
+In our `Main` method: 👇
+
+```c#
+// Creating new objects of the classes
+Dog dog = new Dog();
+Cat cat = new Cat();
+Duck duck = new Duck();
+
+// Creating an array of type `Animal` base class
+Animal[] animals = {dog, cat, duck};
+
+// Looping over each animal in the array and calling each specific methods
+foreach (Animal animal in animals)
+{
+animal.Eat();
+animal.Sleep();
+}
 ```
