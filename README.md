@@ -1050,3 +1050,39 @@ static void iterate<T>(T[] nums)
 
 ## Multi Threading
 
+Multi-threading is used to perform different code task concurrently. Thread is an execution path of our program, examples: 👇
+
+```c#
+ static void Main(string[] args)
+{
+    // Initializing an object of threads and passing the function we want to run in
+    Thread threadOne = new Thread(ItUp);
+    Thread threadTwo = new Thread(ItDown);
+
+    // Starting them with the `Start` method
+    threadOne.Start();
+    threadTwo.Start();
+}
+        
+// A function iterating in ascending order
+static void ItUp()
+{
+    for (int i = 1; i < 11; i++)
+    {
+        Console.WriteLine($"Counting up: {i}");
+        Thread.Sleep(2000);
+    }
+    Console.WriteLine("Counting up sequence completed!");
+}
+
+// A function iterating in descending order
+static void ItDown()
+{
+    for (int i = 10; i > 0; i--)
+    {
+        Console.WriteLine($"Counting down: {i}");
+        Thread.Sleep(2000);
+    }
+    Console.WriteLine("Counting down sequence completed!");
+}
+```
